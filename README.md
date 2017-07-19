@@ -4,11 +4,16 @@
 
 ## Build Setup
 
+> View Website App
+<a href="http://139.159.220.163:8085/" target="_blank">http://139.159.220.163:8085/</a>
+
+<img src="https://raw.githubusercontent.com/xjh22222228/diamonds/master/static/images/view.png">
+
 ``` bash
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
+# serve with hot reload at localhost:8081
 npm run dev
 
 # build for production with minification
