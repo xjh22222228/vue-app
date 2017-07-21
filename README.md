@@ -1,13 +1,14 @@
 # diamonds
 
-> Diamonds
+> 这是一个类似推广网站， 我非常喜欢这样的风格。
+
+## 在线预览
+
+预览 [戳这里](http://139.159.220.163:8085)
+
+![](https://raw.githubusercontent.com/xjh22222228/diamonds/master/static/images/view.png)
 
 ## Build Setup
-
-> View Website App
-<a href="http://139.159.220.163:8085/" target="_blank">http://139.159.220.163:8085/</a>
-
-<img src="https://raw.githubusercontent.com/xjh22222228/diamonds/master/static/images/view.png">
 
 ``` bash
 # install dependencies
@@ -23,4 +24,6 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+![](https://raw.githubusercontent.com/xjh22222228/diamonds/master/static/images/pay.jpg)
+
