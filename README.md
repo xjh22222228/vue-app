@@ -4,7 +4,7 @@
 
 ## 在线预览
 
-预览 [戳这里](http://139.159.220.163:8085)
+[点击这里预览](https://xjh22222228.github.io/diamonds/)
 
 ![](https://raw.githubusercontent.com/xjh22222228/diamonds/master/static/images/view.png)
 
