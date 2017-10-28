@@ -3,7 +3,7 @@
 
 ## 在线预览
 
-[点击这里预览](https://xjh22222228.github.io/diamonds/)
+预览 [戳这里](https://xjh22222228.github.io/vue-app/)
 
 ![](https://raw.githubusercontent.com/xjh22222228/diamonds/master/static/images/view.png)
 
