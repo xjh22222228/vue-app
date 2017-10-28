@@ -1,0 +1,171 @@
+@charset "utf-8";
+
+
+
+
+
+/**
+ * [keyframes 定义css关键帧动画keyframes]
+ * @param  {[type]} $name [定义动画名字]
+ * @return {[type]}       [no]
+ */
+@mixin keyframes($name){
+    @keyframes #{$name} {
+        @content;
+    }
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+}
+
+
+/**
+ * [animation 定义animation动画]
+ * @param  {[type]} $value [值]
+ * @return {[type]}        [description]
+ *
+ *  example: @include animation(name .5s linear);
+ */
+@mixin prefix($name,$value){
+    #{$name}:$value;
+    -webkit-#{$name}:$value;
+}
+
+
+@mixin display($value) {
+    display:-webkit-#{$value};
+}
+
+
+// 居中 $x = 水平， $y = 垂直
+@mixin center($x: center, $y: center, $xx: center, $yy: center) {
+    @include display(flex);
+    @include display(box);
+    justify-content: $x;
+    align-items: $y;
+    @include prefix(box-pack, $xx);
+    @include prefix(box-align, $yy);
+}
+
+// 底部高度
+$paddingBottom: 66px;
+
+// 公共蓝色
+$commonBgColor: #009aff;
+
+// 鼠标移过背景色
+$hoverBgColor: #0C6AFE;
+
+
+// 每个盒子的顶部线条
+%borderTop {
+    border-top: 1px solid rgba(255, 255, 255, .5);
+}
+
+
+
+// 登录注册背景图
+$loginBg: "../assets/images/bg.jpg";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

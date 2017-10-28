@@ -1,0 +1,1381 @@
+@charset "utf-8";
+@import "global";
+/*!
+
+Author: xiejiahe;
+https://github.com/xjh22222228
+ */
+a,
+abbr,
+address,
+article,
+aside,
+audio,
+b,
+blockquote,
+body,
+canvas,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+p,
+pre,
+q,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+ul,
+var,
+video {
+    margin: 0;
+    padding: 0;
+    color: #000;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    @include prefix(user-select, none);
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Microsoft Yahei", sans-serif;
+    -webkit-overflow-scrolling: touch;
+    background: #f6f6f6;
+    min-width: 320px;
+}
+
+html,
+body,
+#app {
+    height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup, 
+menu,
+nav,
+section {
+    display: block;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 14px;
+}
+
+h4,
+h5,
+h6 {
+    font-size: 100%;
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal;
+}
+
+code,
+kbd,
+pre,
+samp,
+tt {
+    font-family: "Courier New", Courier, monospace;
+}
+
+small {
+    font-size: 12px;
+}
+
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:link,
+a:visited {
+    color: #000;
+}
+
+abbr[title],
+acronym[title] {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:after,
+q:before {
+    content: '';
+}
+
+legend {
+    color: #000;
+}
+
+fieldset,
+img,
+iframe {
+    border: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+hr {
+    border: none;
+    height: 1px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"],
+input[type="reset"] {
+    -webkit-appearance: none;
+    outline: none;
+    border: 1px solid #000;
+    padding: 0;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    cursor: pointer;
+    outline:none;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../assets/fonts/iconfont.eot');
+    src: url('../assets/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/iconfont.woff') format('woff'),
+    url('../assets/fonts/iconfont.ttf') format('truetype'),
+    url('../assets/fonts/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+
+
+
+
+
+
+
+// ==============================================
+// ================= 公共样式 ===================
+// ==============================================
+
+@include keyframes(layer-top) {
+
+}
+
+// 顶部弹框
+.layer-top {
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 100%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    @include center;
+
+    &.animated {
+        @include prefix(animation-duration, .2s);
+    }
+}
+
+
+@include keyframes(loading) {
+    0% {
+        @include prefix(transform, scale(0));
+    }
+
+    50% {
+        @include prefix(transform, scale(1));
+    }
+
+    100% {
+        @include prefix(transform, scale(0));
+    }
+}
+
+// 全局loading
+.loading {
+    z-index: 9999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include center;
+    
+    .loading-box {
+
+        i {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #f50;
+            margin-right: 10px;
+            @include prefix(animation, loading 1s -.6s linear infinite);
+        }
+
+        i:nth-child(2) {
+            background: #2AFE0A;
+            @include prefix(animation-delay, -.4s);
+        }
+
+        i:nth-child(3) {
+            background: #19bfee;
+            @include prefix(animation-delay, -.2s);
+        }
+    }
+}
+
+
+
+// 弹框正确
+.correct {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include center;
+
+    .correct-box {
+        padding: 10px 20px;
+        background: rgba(0, 0, 0, .5);
+        border-radius: 6px;
+    }
+
+    .iconfont {
+        color: #fff;
+        font-size: 70px;
+        text-align: center;
+    }
+
+    .content {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+
+
+// 确认和取消
+.confirm-cancel {
+    z-index: 99999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .4);
+    @include center;
+
+    .confirm-cancel-box {
+        width: 250px;
+        padding: 25px 0;
+        background: #fff;
+        border-radius: 7px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, .7);
+    }
+
+    .logout {
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f9f9f9;
+    }
+
+    .bottom {
+        margin-top: 10px;
+        @include display(flex);
+
+        div {
+            @include prefix(flex, 1);
+            font-size: 18px;
+            text-align: center;
+            color: #2d97f8;
+            cursor: pointer;
+
+            &:hover {
+                color: rgba(45, 155, 248, .8);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+// 公共user
+
+.top {
+    padding: 10px 10px 15px 20px;
+    background: $commonBgColor;
+    @extend %borderTop;
+    @include display(flex);
+
+    .avatar {
+
+        img {
+            width: 100px;
+            border-radius: 50%;
+            border: 1px solid #22FF3E;
+        }
+    }
+
+    .content {
+        padding: 15px 0 0 10px;
+        @include prefix(flex, 1);
+
+        p {
+            line-height: 33px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+}
+
+
+
+// ==============================
+// ========== header ============
+// ==============================
+header {
+    position: relative;
+    background: $commonBgColor;
+    height: 50px;
+
+    %common {
+        z-index: 3;
+        position: absolute;
+        top: 5px;
+        font-size: 27px;
+        color: #fff;
+    }
+
+    a.left {
+        left: 5px;
+        @extend %common;
+    }
+
+    a.right {
+        right: 5px;
+        @extend %common;
+    }
+
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-weight: bold;
+        @include center;
+    }
+}
+
+
+// ==================================
+// ============= footer =============
+// ==================================
+
+footer {
+    z-index: 999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $paddingBottom;
+    background: #fff;
+    @include display(flex);
+
+    div {
+        padding-top: 5px;
+        @include prefix(flex, 1);
+        text-align: center;
+        border-right: 1px solid #f6f6f6;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            background: #f6f6f6;
+        }
+
+        i.iconfont {
+            font-size: 25px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
+}
+
+
+
+
+
+
+
+// ======================================
+// ========== login AND register ========
+// ======================================
+
+.login {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #0075c2 url($loginBg) no-repeat center center;
+    background-size: cover;
+    min-height: 100%;
+    @include center(center, flex-start, center, start);
+
+    .logo {
+        text-align: center;
+
+        img {
+            width: 100px;
+        }
+    }
+
+    .login-box {
+        margin-top: 100px;
+        width: 80%;
+    }
+
+    $marginTop: 10px;
+
+    .common {
+        position: relative;
+        margin-top: $marginTop;
+        padding: 5px 5px 5px 10px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, .2);
+
+        label {
+            color: #fff;
+            font-size: 30px;
+            vertical-align: middle;
+        }
+
+        input {
+            position: absolute;
+            width: 80%;
+            top: 0;
+            left: 50px;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+
+            &::-webkit-input-placeholder {
+                color: rgba(255, 255, 255, .7);
+            }
+
+            &:-webkit-autofill {
+                  -webkit-text-fill-color: #fff !important;
+                  transition: background-color 5000s;
+            }
+        }
+
+        i.iconfont {
+            position: absolute;
+            right: -30px;
+            top: 0;
+            height: 100%;
+            font-size: 28px;
+            color: #2DFD0A;
+            @include center;
+        }
+    }
+
+    .register-accout {
+        text-align: right;
+        margin-top: $marginTop;
+
+        a {
+            color: #fff;
+            font-size: 17px;
+        }
+    }
+
+    .login-submit {
+        margin-top: $marginTop;
+
+        &:hover {
+            button {
+                background: #0074FF;
+            }
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            background: #308DFB;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            letter-spacing: 5px;
+            @include prefix(transition, background .15s linear);
+        }
+    }
+}
+
+
+
+// ==============================
+// =========== 个人中心 ==========
+// ==============================
+
+.center {
+    padding-bottom: $paddingBottom + 10;
+
+    .profit {
+        @extend %borderTop;
+        background: $commonBgColor;
+        @include display(flex);
+
+        div {
+            padding: 5px 0;
+            @include prefix(flex, 1);
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, .2);
+            cursor: pointer;
+
+            p {
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .operation {
+        background: #fff;
+        overflow: hidden;
+
+        div {
+            padding: 5px 0;
+            width: 100 / 3 + %;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            border-right: 1px solid #f6f6f6;
+            border-bottom: 1px solid #f6f6f6;
+
+            &:hover,
+            &:active {
+                background: #f6f6f6;
+            }
+
+            i {
+                color: $commonBgColor;
+                font-size: 25px;
+            }
+
+            p {
+                font-size: 16px;
+                color: #666;
+                margin-top: 3px;
+            }
+        }
+    }
+
+    // 提现记录
+    .record {
+        margin: 15px 0;
+
+        .record-title {
+            background: $commonBgColor;
+            font-size: 20px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px 0;
+        }
+
+        .record-center {
+            background: $commonBgColor;
+            border-top: 1px solid rgba(255, 255, 255, .4);
+            @include display(flex);
+
+            div {
+                padding: 8px 0;
+                @include prefix(flex, 1);
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                color: #fff;
+            }
+        }
+    }
+}
+
+// ================================
+// ========== 近期提现记录 ==========
+// ================================
+
+.lately {
+    height: 210px;
+    overflow: hidden;
+
+    li {
+        @include display(flex);
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        padding: 10px 0;
+    }
+
+    span {
+        @include prefix(flex, 1);
+        text-align: center;
+        font-size: 16px;
+        @include center;
+    }
+}
+
+
+
+// ===============================
+// =========== 我要提现 ===========
+// ===============================
+
+.withdraw {
+    padding-bottom: $paddingBottom + 10;
+
+    .form {
+        padding: 10px 10px;
+        background: #fff;
+
+        div {
+            padding: 10px 0 10px 10px;
+            border-bottom: 1px solid #e1e1e1;
+        }
+    }
+
+    .property {
+        text-align: center;
+        
+        h2 {
+            font-size: 25px;
+        }
+
+        span {
+            color: #ff0000;
+        }
+    }
+
+    .account {
+        font-size: 20px;
+        color: #f50;
+    }
+
+    .common {
+        position: relative;
+        @include display(flex);
+
+        label {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        input {
+            padding: 5px 0;
+            @include prefix(flex, 1)
+            height: 100%;
+            font-size: 16px;
+            border: none;
+
+            &::-webkit-input-placeholder {
+                color: #666;
+            }
+        }
+    }
+
+    .button {
+
+        &:hover,
+        &:active {
+            button {
+                background: #0C6AFE;
+            }
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            font-size: 18px;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            background: $commonBgColor;
+            border-radius: 5px;
+            @include prefix(transition, background .1s linear);
+        }
+    }
+
+    .tip {
+        padding: 0 10px;
+
+        p {
+            font-size: 15px;
+            line-height: 22px;
+        }
+
+        h6 {
+            font-size: 15px;
+            color: #ff0000;
+        }
+    }
+}
+
+
+
+// ================================
+// =========== 我要收徒 ============
+// ================================
+
+.apprentice {
+    padding-bottom: $paddingBottom + 10;
+
+    .share {
+        margin-top: 10px;
+        background: #fff;
+        padding: 20px 10px;
+        font-size: 17px;
+
+        .title {
+            color: #ff0000;
+            border-bottom: 2px solid #f50;
+        }
+
+        .link {
+            margin-top: 10px;
+
+            a {
+                margin: 0 10px;
+                color: #ff0000;
+            }
+        }
+
+        .press {
+            color: #ff0000;
+        }
+    }
+
+    .tuiguang,
+    .bottom {
+        background: #fff;
+        padding: 10px 10px;
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    .propaganda {
+        background: #ff9800;
+        border-top: 2px solid #ccc;
+        border-bottom: 2px solid #ccc;
+
+        p {
+            font-size: 20px;
+        }
+    }
+}
+
+
+// ================================
+// =========== 我的钱包 ============
+// ================================
+
+.wallet {
+
+    .wallet-center {
+        margin-top: 20px;
+        background: #fff;
+    }
+
+    .common {
+        cursor: pointer;
+        padding: 10px 20px 10px 10px;
+        border-bottom: 1px solid #e1e1e1;
+        @include display(flex);
+
+        &:hover,
+        &:active {
+            background: #f6f6f6;
+        }
+
+        span {
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        i {
+            @include display(flex);
+            @include prefix(flex, 1)
+            font-size: 20px;
+            color: #ccc;
+            @include prefix(flex-direction, row-reverse);
+        }
+    }
+}
+
+
+// ================================
+// =========== 收徒赚钱 ============
+// ================================
+
+.make-money {
+    padding-bottom: $paddingBottom + 10;
+
+    .image {
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .today {
+        background: #fff;
+        @include display(flex);
+
+        div {
+            padding: 10px 0;
+            @include prefix(flex, 1);
+            text-align: center;
+
+            &:nth-child(1) {
+                border-right: 1px solid #e1e1e1;
+            }
+
+            span,
+            p {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .invitation {
+        background: $commonBgColor;
+        text-align: center;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px 10px 0 10px;
+
+        &:hover,
+        &:active {
+            background: $hoverBgColor;
+        }
+    }
+
+    .make-bottom {
+        font-size: 17px;
+        margin-top: 10px;
+        padding: 0 10px;
+
+        h2 {
+            font-size: 19px;
+            color: #ff0000;
+            line-height: 30px;
+            margin: 5px 0;
+        }
+    }
+}
+
+
+// ===============================
+// =========== 提现记录 ===========
+// ===============================
+
+.withdrawals {
+    padding-bottom: $paddingBottom + 10;
+    
+    .top {
+        background: #fff;
+        padding: 10px 10px;
+        @include display(flex);
+        font-size: 20px;
+
+        .balance {
+            padding-top: 10px;
+        }
+
+        span {
+            color: #ff0000;
+        }
+
+        .tx {
+            @include prefix(flex, 1);
+            @include display(flex);
+            flex-direction: row-reverse;
+
+            &:hover {
+                
+                button {
+                    color: #fff;
+                    background: #f50;
+                }
+            }
+
+            button {
+                color: #008000;
+                border: 2px solid #f50;
+                border-radius: 5px;
+                background: transparent;
+                padding: 7px 30px;
+                @include prefix(transition, all .15s linear)
+            }
+        }
+    }
+
+    .money-info {
+        margin-top: 2px;
+        background: #fff;
+    }
+
+    .money-title {
+        @include display(flex);
+
+        div {
+            padding: 10px 0;
+            @include prefix(flex, 1);
+            text-align: center;
+            font-size: 18px;
+            border-right: 1px solid #e1e1e1;
+
+            &:nth-last-child(1) {
+                border: 0;
+            }
+        }
+    }
+
+    .money-list {
+        border-top: 2px solid rgba(0, 0, 0, .1);
+
+        li {
+            padding: 10px 0;
+            @include display(flex);
+
+            &:nth-child(even) {
+                background: #f6f6f6;
+            }
+
+            span {
+                @include prefix(flex, 1);
+                text-align: center;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+// ===============================
+// =========== 新手指南 ===========
+// ===============================
+
+.help {
+    padding-bottom: $paddingBottom + 10;
+
+    .platform {
+        position: relative;
+        width: 150px;
+        margin: 10px 10px 10px 18px;
+        background: $commonBgColor;
+        border-radius: 3px;
+        color: #fff;
+        padding: 10px 15px 10px 15px;
+        font-size: 18px;
+        font-weight: bold;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 38px solid transparent;
+            border-top-width: 22px;
+            border-bottom-width: 22px;
+            border-right-color: #fff;
+        }
+    }
+
+    .help-content {
+        margin: 10px 20px;
+        border: 1px solid #ccc;
+        padding: 10px 10px;
+        font-size: 20px;
+
+        h2 {
+            color: #11979c;
+            font-size: 22px;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+    }
+}
+
+
+// ===============================
+// =========== 粉丝收益 ===========
+// ===============================
+
+.fans {
+    padding-bottom: $paddingBottom + 10;
+
+    .report {
+        background: #fff;
+
+        .report-title {
+            padding: 10px 0 10px 20px;
+            font-weight: bold;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        div {
+            font-size: 20px;
+
+            &:nth-last-child(1) {
+                border: none;
+            }
+        }
+
+        .report-info {
+            @include display(flex);
+            border-bottom: 1px solid #e1e1e1;
+
+            div {
+                padding: 10px 0;
+                text-align: center;
+                @include prefix(flex, 1);
+            }
+        }
+    }
+
+    .fans-report {
+
+        li {
+            padding: 10px 0;
+            @include display(flex);
+            border-bottom: 1px solid #e1e1e1;
+
+            &:nth-last-child(1) {
+                border: none;
+            }
+
+            span {
+                @include prefix(flex, 1);
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+// ===============================
+// =========== 收益日志 ===========
+// ===============================
+
+.journal {
+    padding-bottom: $paddingBottom + 10;
+
+    .water {
+        
+        background: #fff;
+        font-size: 20px;
+
+        .water-title {
+            padding: 15px 0 10px 10px;
+            border-bottom: 1px solid #e1e1e1;
+            font-weight: bold;
+        }
+
+        .water-cen {
+            border-bottom: 1px solid #e1e1e1;
+            @include display(flex);
+
+            div {
+                padding: 10px 0;
+                @include prefix(flex, 1);
+                text-align: center;
+            }
+        }
+
+        .journal-water {
+
+            li {
+                border-bottom: 1px solid #e1e1e1;
+                padding: 10px 0;
+                @include display(flex);
+
+                span {
+                    @include prefix(flex, 1);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+
+// ===============================
+// =========== 分享赚钱 ===========
+// ===============================
+
+.share {
+    padding-bottom: $paddingBottom + 10;
+
+    nav {
+        @extend %borderTop;
+        background: $commonBgColor;
+        @include display(flex);
+
+        div {
+            @include prefix(flex, 1);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            @include prefix(transition, background .1s linear);
+
+            &:hover {
+                background: $hoverBgColor;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+// =================================
+// ============== 404 ==============
+// =================================
+
+.error {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #000 url("/static/images/404.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
